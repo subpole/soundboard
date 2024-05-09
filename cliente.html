@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CLIENTE</title>
+
+	<script type="text/javascript" src="./src/libs/socket.io.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
+    <script src="./src/classes/SocketClient.js"></script>
+
+	<script src="./env.js"></script>
+	<style>
+		.ctn {
+			display: flex;
+			align-items: center;
+			align-content: center;
+			justify-content: center;
+			flex-direction: column;
+			gap:10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="ctn">
+		<h1>CLIENTE</h1>
+		<a id="link" href="">cambiar a servidor</a>
+
+		<h2 id="sala"></h2>
+		<a target="_blank" href="https://www.freemake.com/es/free_video_downloader_ideal/">web pa descargar video de yt</a>
+		<a target="_blank" href="https://mp3cut.net/es/">web pa recortar audios</a>
+		<br />
+		<div>
+			<button onclick="action('latigo1.mp3')">latigo 1</button>
+			<button onclick="action('latigo2.mp3')">latigo 2</button>
+			<button onclick="action('latigo3.mp3')">latigo 3</button>
+			<button onclick="action('latigo4.mp3')">latigo 4</button>
+			<button onclick="action('latigo5.mp3')">latigo 5</button>
+			<button onclick="action('latigo6.mp3')">latigo 6</button>
+		</div>
+		<hr />
+		<div>
+			<button onclick="action('americaya.mp3')">america ya</button>
+			<button onclick="action('ohmygah.mp3')">oh my gah.mp3</button>
+			<button onclick="action('sataandagi.mp3')">sata andagi</button>
+			<button onclick="action('hallo.mp3')">hallo</button>
+			<button onclick="action('hallo2.mp3')">hallo 2</button>
+			<button onclick="action('zawarudo.mp3')">zawarudo</button>
+		</div>
+		<div>
+			<button onclick="action('ahshit.mp3')">ah shit here we go again</button>
+			<button onclick="action('badumtss.mp3')">badum tss</button>
+			<button onclick="action('cricricri.mp3')">*grillo*</button>
+		</div>
+		<h3>Minecraft</h3>
+		<div>
+			<div>
+				<button onclick="action('mc/cave1.wav')">cave1</button>
+				<button onclick="action('mc/cave2.wav')">cave2</button>
+				<button onclick="action('mc/chestclosed.wav')">chestclosed</button>
+				<button onclick="action('mc/chestopen.wav')">chestopen</button>
+				<button onclick="action('mc/glass1.wav')">glass1</button>
+				<button onclick="action('mc/glass2.wav')">glass2</button>
+				<button onclick="action('mc/glass3.wav')">glass3</button>
+				<button onclick="action('mc/levelup.wav')">levelup</button>
+				<button onclick="action('mc/portal.wav')">portal</button>
+				<button onclick="action('mc/thunder1.wav')">thunder1</button>
+				<button onclick="action('mc/achievement.mp3')">achievement.</button>
+			</div>
+			
+			<div>
+				<h4>puerta</h4>
+				<button onclick="action('mc/door/open.wav')">open</button>
+				<button onclick="action('mc/door/open2.wav')">open2</button>
+				<button onclick="action('mc/door/open3.wav')">open3</button>
+				<button onclick="action('mc/door/open4.wav')">open4</button>
+				<button onclick="action('mc/door/close.wav')">close</button>
+				<button onclick="action('mc/door/close2.wav')">close2</button>
+				<button onclick="action('mc/door/close3.wav')">close3</button>
+				<button onclick="action('mc/door/close4.wav')">close4</button>
+				<button onclick="action('mc/door/close5.wav')">close5</button>
+				<button onclick="action('mc/door/close6.wav')">close6</button>
+			</div>
+			<div>
+				<h4>ghast</h4>
+				<button onclick="action('mc/ghast/charge.wav')">charge</button>
+				<button onclick="action('mc/ghast/moan1.wav')">moan1</button>
+				<button onclick="action('mc/ghast/moan2.wav')">moan2</button>
+			</div>
+			
+			<div>
+				<h4>araña</h4>
+				<button onclick="action('mc/spider/say1.wav')">say1</button>
+				<button onclick="action('mc/spider/say2.wav')">say2</button>
+				<button onclick="action('mc/spider/say3.wav')">say3</button>
+			</div>
+			
+			<div>
+				<h4>zombie</h4>
+				<button onclick="action('mc/zombie/wood1.wav')">wood1</button>
+				<button onclick="action('mc/zombie/wood2.wav')">wood2</button>
+				<button onclick="action('mc/zombie/wood3.wav')">wood3</button>
+				<button onclick="action('mc/zombie/wood4.wav')">wood4</button>
+				<button onclick="action('mc/zombie/say2.wav')">say2</button>
+				<button onclick="action('mc/zombie/say3.wav')">say3</button>
+				<button onclick="action('mc/hurt1.wav')">hurt1</button>
+				<button onclick="action('mc/hurt2.wav')">hurt2</button>
+			</div>	
+			<div>	
+				<h4>aldeano</h4>
+				<button onclick="action('mc/villager/hit1.wav')">hit1</button>
+				<button onclick="action('mc/villager/hit2.wav')">hit2</button>
+				<button onclick="action('mc/villager/hit3.wav')">hit3</button>
+				<button onclick="action('mc/villager/hit4.wav')">hit4</button>
+				<button onclick="action('mc/villager/death.wav')">death</button>
+				<button onclick="action('mc/villager/yes1.wav')">yes1</button>
+				<button onclick="action('mc/villager/idle1.wav')">idle1</button>
+				<button onclick="action('mc/villager/idle2.wav')">idle2</button>
+				<button onclick="action('mc/villager/idle3.wav')">idle3</button>
+			</div>	
+
+		</div>
+		<br />
+		<div id="qrcode"></div>
+	</div>
+
+
+
+	<script>
+		// #############################################################################
+		const qrcode = new QRCode(document.getElementById('qrcode'), {
+			text: window.	clienteUrl+window.location.search,
+			width: 128,
+			height: 128,
+			colorDark : '#000',
+			colorLight : '#fff',
+			correctLevel : QRCode.CorrectLevel.H
+		});
+		// #############################################################################
+		document.getElementById("link").href = window.servidorUrl+window.location.search;
+
+		function action(audio) {
+			sc.getSocket().emit('owo', audio);
+		}
+
+		function cambiarUrlSala(sala) {
+			// Get the current URL
+			let url = new URL(window.location.href);
+			
+			// Set or modify the query parameter
+			url.searchParams.set('sala', sala);
+
+			// Replace the current URL with the modified one
+			window.history.replaceState({}, '', url);
+		}
+		let sc
+		;(_=> {
+			let url = new URL(window.location.href);
+			
+			if (!url.searchParams.has('sala')) {
+				let paramValue = prompt("introduce el código de la sala:", "");
+					if (paramValue !== null && paramValue !== "") {
+						// Set the parameter value in the URL
+						url.searchParams.set('sala', paramValue);
+	
+						// Replace the current URL with the modified one
+						window.history.replaceState({}, '', url);
+					} else {
+						return;
+					}
+			}
+	
+			// ##############################################################################################################################################
+			sc = new SocketClient();
+			sc.connectToRoom(url.searchParams.get("sala") , _=> {
+				console.log(_);
+				if (_) {
+					document.getElementById("sala").innerText = `sala: ${url.searchParams.get("sala")}`;
+				} else {
+					url.search = '';
+	
+					// Replace the current URL with the modified one
+					window.history.replaceState({}, '', url);
+					alert("la sala no existe");
+					window.location.reload();
+				}
+			})
+	
+
+
+		})()
+	</script>
+</body>
+</html>
