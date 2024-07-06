@@ -10,7 +10,7 @@ const io = new Server(server, {
 	}
 });
 
-let allRoomsInfo = {};
+let allRoomsInfo = {"0FYP": "UnU"};
 
 io.on('connection', (socket) => {
 	console.log("--conectado--");
