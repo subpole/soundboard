@@ -7,7 +7,7 @@ def get_rms(audio_segment):
     samples = np.array(audio_segment.get_array_of_samples())
     return np.sqrt(np.mean(samples**2))
 
-def normalize_volume(input_folder, output_folder, target_dBFS=-20.0, quieter_dB=-25.0):
+def normalize_volume(input_folder, output_folder, target_dBFS=-20.0, quieter_dB=-3.0):
     """Normalize the volume of all audio files in the specified input folder and save them to the output folder, preserving the directory structure."""
     # Ensure the target dBFS is negative
     target_dBFS = -abs(target_dBFS)
